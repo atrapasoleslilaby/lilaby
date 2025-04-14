@@ -92,42 +92,21 @@
 
 <section id="galeria">
   <h2>Galería de Atrapasoles</h2>
-  <div class="galeria">
-    <div class="item">
-      <img src="atrapasol1.jpg" alt="Atrapasol Luna" />
-    </div>
-    <div class="item">
-      <img src="atrapasol2.jpg" alt="Atrapasol Estrella" />
-    </div>
-    <!-- Agrega más imágenes aquí -->
-  </div>
-</section>
+<div class="galeria">
+  <img src="atrapasol1.jpg" alt="Atrapasol 1" class="imagen1">
+  <img src="atrapasol2.jpg" alt="Atrapasol 2" class="imagen2">
+</div>
 
 <style>
-  .galeria {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1em;
-  }
-
-  .galeria .item {
-    text-align: center;
-    width: 250px; /* Ajusta el tamaño del contenedor de la imagen */
-  }
-
-  .galeria .item.grande {
-    width: 250px; /* Aumenta el tamaño del contenedor de la imagen para la imagen más grande */
-  }
-
   .galeria img {
-    width: 100%; /* Ajusta el ancho de la imagen al 100% de su contenedor */
-    max-width: 150px; /* Establece un tamaño máximo para las imágenes */
-    height: auto; /* Mantiene la proporción de las imágenes */
+    width: 100%;
+    height: auto;
+    max-width: 400px; /* Tamaño de la primera imagen */
+    margin: 10px;
   }
 
-  .galeria .item.grande img {
-    max-width: 250px; /* Aumenta el tamaño máximo de la imagen más grande */
+  .imagen2 {
+    max-width: 600px; /* Tamaño de la segunda imagen, más grande */
   }
 </style>
 
