@@ -90,7 +90,7 @@
     <button>Ver catálogo completo</button>
   </section>
 
- <section id="galeria">
+<section id="galeria">
   <h2>Galería de Atrapasoles</h2>
   <div class="galeria">
     <div class="item">
@@ -101,9 +101,29 @@
       <img src="atrapasol2.jpg" alt="Atrapasol Estrella" />
       <p>Forma: Estrella</p>
     </div>
-    <!-- Agrega más imágenes de atrapasoles aquí -->
+    <!-- Agrega más imágenes aquí -->
   </div>
 </section>
+
+<style>
+  .galeria {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+
+  .galeria .item {
+    text-align: center;
+    width: 200px; /* Ajusta el tamaño del contenedor de la imagen */
+  }
+
+  .galeria img {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% de su contenedor */
+    max-width: 150px; /* Establece un tamaño máximo para las imágenes */
+    height: auto; /* Mantiene la proporción de las imágenes */
+  }
+</style>
 
   <section id="contactos">
   <h2>Contacto</h2>
