@@ -90,15 +90,42 @@
     <button>Ver catálogo completo</button>
   </section>
 
-  <section id="galeria">
-    <h2>Galería</h2>
-    <p>Próximamente podrás ver nuestros atrapasoles brillando en diferentes espacios ✨</p>
-  </section>
+ <section id="galeria">
+  <h2>Galería de Atrapasoles</h2>
+  <div class="galeria">
+    <div class="item">
+      <img src="atrapasol1.jpg" alt="Atrapasol Luna" />
+      <p>Forma: Luna</p>
+    </div>
+    <div class="item">
+      <img src="atrapasol2.jpg" alt="Atrapasol Estrella" />
+      <p>Forma: Estrella</p>
+    </div>
+    <!-- Agrega más imágenes de atrapasoles aquí -->
+  </div>
+</section>
 
   <section id="contactos">
-    <h2>Contacto</h2>
-    <p>¿Tienes dudas o quieres uno? Escríbenos por DM en Instagram o contáctanos por mensaje privado.</p>
-  </section>
+  <h2>Contacto</h2>
+  <form action="mailto:tucorreo@dominio.com" method="POST" enctype="text/plain">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+    
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" required placeholder="Tu correo electrónico">
+    
+    <label for="telefono">Teléfono (opcional):</label>
+    <input type="tel" id="telefono" name="telefono" placeholder="Tu número de teléfono">
+    
+    <label for="direccion">Dirección (opcional):</label>
+    <input type="text" id="direccion" name="direccion" placeholder="Tu dirección">
+    
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje" required placeholder="Tu mensaje"></textarea>
+    
+    <button type="submit">Enviar</button>
+  </form>
+</section>
 
   <section id="resenas">
     <h2>Reseñas</h2>
