@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lilaby Atrapasol</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #fdf6f0;
+      color: #4b2e39;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(to right, #dcc6f0, #e0c3f3);
+      text-align: center;
+      padding: 1.5em;
+    }
+    header img {
+      max-width: 150px;
+    }
+    nav {
+      background-color: #eeddf5;
+      padding: 1em;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: #5c3d44;
+      font-weight: bold;
+    }
+    section {
+      padding: 2em;
+    }
+    .instagram {
+      background-color: #f4e3f9;
+      text-align: center;
+      padding: 1.5em;
+      border-top: 1px solid #dbcbb8;
+    }
+    .instagram a {
+      color: #b288a3;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    .whatsapp {
+      background-color: #e5d4f8;
+      text-align: center;
+      padding: 1.5em;
+    }
+    .whatsapp a {
+      color: #7a52a1;
+      font-size: 1.2em;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1em;
+      font-size: 0.9em;
+      color: #967f6e;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo png.png" alt="Lilaby Atrapasol logo">
+    <h1>Lilaby Atrapasol</h1>
+  </header>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#productos">Productos</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contactos">Contacto</a>
+    <a href="#resenas">Reseñas</a>
+  </nav>
+
+  <section id="inicio">
+    <h2>Bienvenid@ a Lilaby</h2>
+    <p>Donde la luz del sol se transforma en arte ✨</p>
+  </section>
+
+  <section id="productos">
+    <h2>Productos</h2>
+    <p>Descubre nuestros atrapasoles en forma de lunas, mini soles, círculos, rombos y más.</p>
+    <button>Ver catálogo completo</button>
+  </section>
+
+  <section id="galeria">
+    <h2>Galería</h2>
+    <p>Próximamente podrás ver nuestros atrapasoles brillando en diferentes espacios ✨</p>
+  </section>
+
+  <section id="contactos">
+    <h2>Contacto</h2>
+    <p>¿Tienes dudas o quieres uno? Escríbenos por DM en Instagram o contáctanos por mensaje privado.</p>
+  </section>
+
+  <section id="resenas">
+    <h2>Reseñas</h2>
+    <p>Pronto verás aquí lo que dicen nuestros clientes felices ☀️</p>
+  </section>
+
+  <div class="instagram">
+    <p>Síguenos en Instagram:</p>
+    <a href="https://www.instagram.com/atrapasoles.lilaby" target="_blank">@atrapasoles.lilaby</a>
+  </div>
+
+  <div class="whatsapp">
+    <p>Escríbenos por WhatsApp:</p>
+    <a href="https://wa.me/593986936953" target="_blank">+593 986 936 953</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Lilaby Atrapasol. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
