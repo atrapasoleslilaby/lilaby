@@ -144,6 +144,31 @@ button:hover {
 #mensaje-flotante.oculto {
   opacity: 0;
 }
+      #mensaje-flotante {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #eeddf5;
+  color: #4b2e39;
+  padding: 1em 2em;
+  border-radius: 1em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-weight: bold;
+  font-size: 1em;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+#mensaje-flotante.mostrar {
+  opacity: 1;
+}
+
+#mensaje-flotante.oculto {
+  opacity: 0;
+}
+
   </style>
 </head>
 <body>
@@ -232,7 +257,6 @@ button:hover {
     <button type="submit">💖 Enviar</button>
   </form>
 
-  <!-- Este es el mensaje flotante -->
   <div id="mensaje-flotante" class="oculto">
     💜 Gracias por tu mensaje, ¡pronto te responderemos con mucha luz! 🌞✨
   </div>
@@ -304,6 +328,33 @@ button:hover {
         console.log('Error:', error);
       });
   });
-</script>
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Página</title>
+  <!-- Aquí irían tus otras etiquetas head y enlaces a estilos -->
+</head>
+<body>
+
+  <!-- Aquí va el contenido de tu página, como el formulario de contacto -->
+
+  <script>
+    document.getElementById('formulario-contacto').addEventListener('submit', function(event) {
+      event.preventDefault();  // Prevenimos el envío normal del formulario
+
+      // Aquí podemos hacer el envío a EmailJS o cualquier otra acción que necesites
+
+      // Mostramos el mensaje flotante de confirmación
+      var mensajeFlotante = document.getElementById('mensaje-flotante');
+      mensajeFlotante.classList.remove('oculto');  // Lo mostramos
+
+      // Lo escondemos después de 5 segundos
+      setTimeout(function() {
+        mensajeFlotante.classList.add('oculto');
+      }, 5000);
+    });
+  </script>
 </body>
 </html>
