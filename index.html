@@ -68,8 +68,56 @@
       padding: 1em;
       font-size: 0.9em;
       color: #967f6e;
-      transition: color 0.3s ease; /* Transición para el color del pie de página */
+      #contactos form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      background-color: #fceffc;
+      padding: 2em;
+      border-radius: 1em;
+      box-shadow: 0 0 15px #eeddf5;
     }
+
+    .fila {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+    }
+
+    .campo {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea {
+      padding: 0.8em;
+      border: 1px solid #d9bde5;
+      border-radius: 8px;
+      font-family: inherit;
+      background-color: #fffafc;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      background-color: #dcb7f3;
+      color: white;
+      border: none;
+      padding: 0.8em 1.5em;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #c89fe8;
+    }
+
   </style>
 </head>
 <body>
@@ -127,24 +175,34 @@
   }
 </style>
 
-  <section id="contactos">
+ <section id="contactos">
   <h2>Contacto</h2>
   <form action="mailto:tucorreo@dominio.com" method="POST" enctype="text/plain">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
-    
-    <label for="email">Correo electrónico:</label>
-    <input type="email" id="email" name="email" required placeholder="Tu correo electrónico">
-    
-    <label for="telefono">Teléfono (opcional):</label>
-    <input type="tel" id="telefono" name="telefono" placeholder="Tu número de teléfono">
-    
-    <label for="direccion">Dirección (opcional):</label>
-    <input type="text" id="direccion" name="direccion" placeholder="Tu dirección">
-    
+    <div class="fila">
+      <div class="campo">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+      </div>
+      <div class="campo">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required placeholder="Tu correo">
+      </div>
+    </div>
+
+    <div class="fila">
+      <div class="campo">
+        <label for="telefono">Teléfono (opcional):</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Tu número">
+      </div>
+      <div class="campo">
+        <label for="direccion">Dirección (opcional):</label>
+        <input type="text" id="direccion" name="direccion" placeholder="Tu dirección">
+      </div>
+    </div>
+
     <label for="mensaje">Mensaje:</label>
-    <textarea id="mensaje" name="mensaje" required placeholder="Tu mensaje"></textarea>
-    
+    <textarea id="mensaje" name="mensaje" required placeholder="Escribe tu mensaje con amor 💖"></textarea>
+
     <button type="submit">Enviar</button>
   </form>
 </section>
