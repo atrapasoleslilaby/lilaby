@@ -201,9 +201,9 @@ button:hover {
   }
 </style>
 
- <section id="contactos">
+<section id="contactos">
   <h2>Contacto</h2>
- <form id="formulario-contacto">
+  <form id="formulario-contacto">
     <div class="fila">
       <div class="campo">
         <label for="nombre">Nombre:</label>
@@ -231,9 +231,11 @@ button:hover {
 
     <button type="submit">💖 Enviar</button>
   </form>
-   <div id="mensaje-flotante" class="oculto">
-  💜 Gracias por tu mensaje, ¡pronto te responderemos con mucha luz! 🌞✨
-</div>
+
+  <!-- Este es el mensaje flotante -->
+  <div id="mensaje-flotante" class="oculto">
+    💜 Gracias por tu mensaje, ¡pronto te responderemos con mucha luz! 🌞✨
+  </div>
 </section>
 
   <section id="resenas">
@@ -281,21 +283,26 @@ button:hover {
   <footer>
     <p>&copy; 2025 Lilaby Atrapasol. Todos los derechos reservados.</p>
   </footer>
- <script>
-  const formulario = document.getElementById("formulario-contacto");
-  const mensajeFlotante = document.getElementById("mensaje-flotante");
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+  emailjs.init('FojyKiv1IwyJXQNZr'); // Aquí va tu Public Key
+</script>
 
-  formulario.addEventListener("submit", function(event) {
-    event.preventDefault();
-    mensajeFlotante.classList.remove("oculto");
-    mensajeFlotante.classList.add("mostrar");
+<script type="text/javascript">
+  const formulario = document.getElementById('formulario-contacto');
 
-    setTimeout(() => {
-      mensajeFlotante.classList.remove("mostrar");
-      mensajeFlotante.classList.add("oculto");
-    }, 4000); // El mensaje dura 4 segundos
+  formulario.addEventListener('submit', function(evento) {
+    evento.preventDefault();
 
-    formulario.reset();
+    const formData = new FormData(formulario);
+
+    emailjs.sendForm('service_05kydsy', 'template_2ze7pje', formData)
+      .then(function(response) {
+        console.log('Éxito:', response);
+        document.getElementById('mensaje-flotante').classList.remove('oculto');
+      }, function(error) {
+        console.log('Error:', error);
+      });
   });
 </script>
 </body>
