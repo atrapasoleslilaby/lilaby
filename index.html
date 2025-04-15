@@ -305,9 +305,10 @@ button:hover {
     <a href="https://wa.me/593986936953" target="_blank">+593 986 936 953</a>
   </div>
 
-  <footer>
-    <p>&copy; 2025 Lilaby Atrapasol. Todos los derechos reservados.</p>
-  </footer>
+<footer>
+  <p>&copy; 2025 Lilaby Atrapasol. Todos los derechos reservados.</p>
+</footer>
+
 <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script type="text/javascript">
   emailjs.init('FojyKiv1IwyJXQNZr'); // Aquí va tu Public Key
@@ -317,20 +318,23 @@ button:hover {
   const formulario = document.getElementById('formulario-contacto');
 
   formulario.addEventListener('submit', function(evento) {
-    evento.preventDefault();
+    evento.preventDefault(); // Previene el comportamiento por defecto del formulario
 
     const formData = new FormData(formulario);
 
     emailjs.sendForm('service_05kydsy', 'template_2ze7pje', formData)
       .then(function(response) {
         console.log('Éxito:', response);
+        
+        // Mostrar el mensaje flotante de confirmación
         document.getElementById('mensaje-flotante').classList.remove('oculto');
-setTimeout(() => {
-  document.getElementById('mensaje-flotante').classList.add('oculto');
-}, 4000); // se oculta después de 4 segundos
-        document.getElementById('mensaje-flotante').classList.remove('oculto');
+        
+        // Ocultar el mensaje flotante después de 4 segundos
+        setTimeout(() => {
+          document.getElementById('mensaje-flotante').classList.add('oculto');
+        }, 4000);
       }, function(error) {
         console.log('Error:', error);
       });
   });
- 
+</script>
