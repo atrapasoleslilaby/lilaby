@@ -281,11 +281,21 @@ button:hover {
   <footer>
     <p>&copy; 2025 Lilaby Atrapasol. Todos los derechos reservados.</p>
   </footer>
-  <script>
-  document.getElementById("formulario-contacto").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita que se recargue la página
-    alert("💜 Gracias por tu mensaje, ¡pronto te responderemos con mucha luz! 🌞✨");
-    this.reset(); // Limpia el formulario
+ <script>
+  const formulario = document.getElementById("formulario-contacto");
+  const mensajeFlotante = document.getElementById("mensaje-flotante");
+
+  formulario.addEventListener("submit", function(event) {
+    event.preventDefault();
+    mensajeFlotante.classList.remove("oculto");
+    mensajeFlotante.classList.add("mostrar");
+
+    setTimeout(() => {
+      mensajeFlotante.classList.remove("mostrar");
+      mensajeFlotante.classList.add("oculto");
+    }, 4000); // El mensaje dura 4 segundos
+
+    formulario.reset();
   });
 </script>
 </body>
