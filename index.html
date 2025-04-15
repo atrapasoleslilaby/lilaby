@@ -1,360 +1,144 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lilaby Atrapasol</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto - Atrapasoles</title>
+
+  <!-- Fuente calmada -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("FojyKiv1IwyJXQNZr"); // Tu Public Key
+    })();
+  </script>
+
   <style>
     body {
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #fdf6f0;
-      color: #4b2e39;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      transition: background-color 0.3s ease; /* Agregar transición para el fondo */
-    }
-    header {
-      background: linear-gradient(to right, #dcc6f0, #e0c3f3);
-      text-align: center;
-      padding: 1.5em;
-      transition: background 0.3s ease; /* Agregar transición para el fondo */
-    }
-    header img {
-      max-width: 150px;
-      transition: transform 0.3s ease; /* Transición para el logo */
-    }
-    header img:hover {
-      transform: scale(1.1); /* Escala un poco el logo al hacer hover */
-    }
-    nav {
-      background-color: #eeddf5;
-      padding: 1em;
-      text-align: center;
-      transition: background-color 0.3s ease; /* Transición para el fondo del menú */
-    }
-    nav a {
-      margin: 0 1em;
-      text-decoration: none;
-      color: #5c3d44;
-      font-weight: bold;
-      transition: color 0.3s ease; /* Transición para el color de los enlaces */
-    }
-    nav a:hover {
-      color: #9c5e77; /* Color al hacer hover sobre los enlaces */
-    }
-    section {
-      padding: 2em;
-      transition: padding 0.3s ease; /* Transición para el relleno de las secciones */
-    }
-    .instagram, .whatsapp {
-      background-color: #f4e3f9;
-      text-align: center;
-      padding: 1.5em;
-      border-top: 1px solid #dbcbb8;
-      transition: background-color 0.3s ease; /* Transición para el fondo de Instagram y WhatsApp */
-    }
-    .instagram a, .whatsapp a {
-      color: #b288a3;
-      text-decoration: none;
-      font-size: 1.2em;
-      font-weight: bold;
-      transition: color 0.3s ease; /* Transición para los enlaces */
-    }
-    .instagram a:hover, .whatsapp a:hover {
-      color: #7a52a1; /* Color al hacer hover */
-    }
-    footer {
-      text-align: center;
-      padding: 1em;
-      font-size: 0.9em;
-      color: #967f6e;
-      #contactos form {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-      background-color: #fceffc;
-      padding: 2em;
-      border-radius: 1em;
-      box-shadow: 0 0 15px #eeddf5;
+      background-color: #fdf9f6;
+      color: #3e2f4d;
     }
 
-    .fila {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1em;
+    /* Mensaje flotante */
+    #mensaje-flotante {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(145deg, #e9dff5, #fbe8cc);
+      color: #5d3b66;
+      padding: 20px 30px;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.8s ease, transform 0.5s ease;
+      transform: translateY(20px);
+      z-index: 9999;
     }
 
-    .campo {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
+    #mensaje-flotante.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    #mensaje-flotante span {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    /* Formulario aesthetic */
+    .formulario-container {
+      max-width: 500px;
+      margin: 100px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 2px solid #e6d2f0;
+    }
+
+    .formulario-container h2 {
+      text-align: center;
+      color: #7a4d91;
+      margin-bottom: 20px;
     }
 
     input, textarea {
-      padding: 0.8em;
-      border: 1px solid #d9bde5;
-      border-radius: 8px;
-      font-family: inherit;
-      background-color: #fffafc;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #d6c3e3;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
     }
 
-    textarea {
-      min-height: 120px;
-      resize: vertical;
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #c59cd7;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
-   button {
-  background: linear-gradient(to right, #dcb7f3, #e0c3f3);
-  color: white;
-  border: none;
-  padding: 0.8em 1.5em;
-  font-size: 1em;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 0 8px #e5d0ff;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  background: linear-gradient(to right, #e6ccff, #d4aaff);
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #ddb0ff;
-}
-#mensaje-flotante {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #eeddf5;
-  color: #4b2e39;
-  padding: 1em 2em;
-  border-radius: 1em;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  font-weight: bold;
-  font-size: 1em;
-  z-index: 9999;
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
-}
-
-#mensaje-flotante.mostrar {
-  opacity: 1;
-}
-
-#mensaje-flotante.oculto {
-  opacity: 0;
-}
-      #mensaje-flotante {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #eeddf5;
-  color: #4b2e39;
-  padding: 1em 2em;
-  border-radius: 1em;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  font-weight: bold;
-  font-size: 1em;
-  z-index: 9999;
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
-}
-
-#mensaje-flotante.mostrar {
-  opacity: 1;
-}
-
-#mensaje-flotante.oculto {
-  opacity: 0;
-}
-
+    button:hover {
+      background-color: #a97cc2;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo png (1).png" alt="Lilaby Atrapasol logo">
-    <h1>Atrapasoles Lilaby</h1>
-  </header>
 
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#productos">Productos</a>
-    <a href="#galeria">Galería</a>
-    <a href="#contactos">Contacto</a>
-    <a href="#resenas">Reseñas</a>
-  </nav>
-
-  <section id="inicio">
-    <h2>Bienvenid@ a Lilaby</h2>
-    <p>Transforma la luz en magia con Lilaby Atrapasoles ✨. Cada pieza única no solo ilumina tu espacio, sino que llena de colores vibrantes y energías positivas tu hogar. Descubre la colección de atrapasoles diseñados para crear ambientes serenos y llenos de paz.</p>
-  </section>
-
-  <section id="productos">
-    <h2>Productos</h2>
-    <p>Descubre nuestros atrapasoles en forma de lunas, mini soles, círculos, rombos y más.</p>
-    <button>Ver catálogo completo</button>
-  </section>
-
-<section id="galeria">
-  <h2>Galería de Atrapasoles</h2>
-<div class="galeria">
-  <img src="atrapasol1.jpg" alt="Atrapasol 1" class="imagen-galeria">
-  <img src="atrapasol2.jpg" alt="Atrapasol 2" class="imagen-galeria">
-  <img src="atrapasol3.jpg" alt="Atrapasol 3" class="imagen-galeria">
-</div>
-
-<style>
-  .galeria {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .imagen-galeria {
-    height: 320px; /* Mismo largo para todas */
-    object-fit: cover;
-    margin: 10px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .imagen-galeria:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-</style>
-
-<section id="contactos">
-  <h2>Contacto</h2>
-  <form id="formulario-contacto">
-    <div class="fila">
-      <div class="campo">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
-      </div>
-      <div class="campo">
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" required placeholder="Tu correo">
-      </div>
-    </div>
-
-    <div class="fila">
-      <div class="campo">
-        <label for="telefono">Teléfono (opcional):</label>
-        <input type="tel" id="telefono" name="telefono" placeholder="Tu número">
-      </div>
-      <div class="campo">
-        <label for="direccion">Dirección (opcional):</label>
-        <input type="text" id="direccion" name="direccion" placeholder="Tu dirección">
-      </div>
-    </div>
-
-    <label for="mensaje">Mensaje:</label>
-    <textarea id="mensaje" name="mensaje" required placeholder="Escribe tu mensaje con amor 💖"></textarea>
-
-    <button type="submit">💖 Enviar</button>
-  </form>
-
-  <div id="mensaje-flotante" class="oculto">
-    💜 Gracias por tu mensaje, ¡pronto te responderemos con mucha luz! 🌞✨
-  </div>
-</section>
-
-  <section id="resenas">
-  <h2>Reseñas</h2>
-
-  <div class="resena">
-    <p>⭐️⭐️⭐️⭐️⭐️</p>
-    <p>"Me encantó el atrapasool, llena mi habitación de arcoíriiis 🌈"</p>
-    <p>- Andrea</p>
+  <div class="formulario-container">
+    <h2>Contáctame ✨</h2>
+    <form id="formulario-contacto">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu correo electrónico" required>
+      <textarea name="mensaje" placeholder="Tu mensaje..." rows="5" required></textarea>
+      <button type="submit">Enviar 💌</button>
+    </form>
   </div>
 
-  <div class="resena">
-    <p>⭐️⭐️⭐️⭐️</p>
-    <p>"La atención fue excelente! y el envío muy rápido 💜"</p>
-    <p>- Sebastián</p>
+  <!-- Mensaje flotante -->
+  <div id="mensaje-flotante">
+    <span>✨ ¡Gracias por tu mensaje! 🌞 Te responderé pronto.</span>
   </div>
-
-  <div class="resena">
-    <p>⭐️⭐️⭐️⭐️⭐️</p>
-    <p>"El atrapasol es hermoso, lo pondré cerca de la ventana"</p>
-    <p>- Camila</p>
-  </div>
-</section>
-
-<style>
-  .resena {
-    background-color: #f7edf9;
-    border: 1px solid #e2c7f0;
-    padding: 1em;
-    margin: 1em 0;
-    border-radius: 1em;
-  }
-</style>
-
-  <div class="instagram">
-    <p>Síguenos en Instagram:</p>
-    <a href="https://www.instagram.com/atrapasoles.lilaby" target="_blank">@atrapasoles.lilaby</a>
-  </div>
-
-  <div class="whatsapp">
-    <p>Escríbenos por WhatsApp:</p>
-    <a href="https://wa.me/593986936953" target="_blank">+593 986 936 953</a>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Lilaby Atrapasol. Todos los derechos reservados.</p>
-  </footer>
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-  emailjs.init('FojyKiv1IwyJXQNZr'); // Aquí va tu Public Key
-</script>
-
-<script type="text/javascript">
-  const formulario = document.getElementById('formulario-contacto');
-
-  formulario.addEventListener('submit', function(evento) {
-    evento.preventDefault();
-
-    const formData = new FormData(formulario);
-
-    emailjs.sendForm('service_05kydsy', 'template_2ze7pje', formData)
-      .then(function(response) {
-        console.log('Éxito:', response);
-        document.getElementById('mensaje-flotante').classList.remove('oculto');
-      }, function(error) {
-        console.log('Error:', error);
-      });
-  });
-  <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tu Página</title>
-  <!-- Aquí irían tus otras etiquetas head y enlaces a estilos -->
-</head>
-<body>
-
-  <!-- Aquí va el contenido de tu página, como el formulario de contacto -->
 
   <script>
     document.getElementById('formulario-contacto').addEventListener('submit', function(event) {
-      event.preventDefault();  // Prevenimos el envío normal del formulario
+      event.preventDefault();
 
-      // Aquí podemos hacer el envío a EmailJS o cualquier otra acción que necesites
+      const serviceID = 'service_05kydsy';
+      const templateID = 'template_2ze7pje';
 
-      // Mostramos el mensaje flotante de confirmación
-      var mensajeFlotante = document.getElementById('mensaje-flotante');
-      mensajeFlotante.classList.remove('oculto');  // Lo mostramos
+      emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+          // Mostrar mensaje flotante
+          const mensaje = document.getElementById('mensaje-flotante');
+          mensaje.classList.add('visible');
 
-      // Lo escondemos después de 5 segundos
-      setTimeout(function() {
-        mensajeFlotante.classList.add('oculto');
-      }, 5000);
+          // Ocultar después de 5 segundos
+          setTimeout(() => {
+            mensaje.classList.remove('visible');
+          }, 5000);
+
+          this.reset(); // Limpiar formulario
+        }, (err) => {
+          alert('Ups... hubo un error 😢. Intenta de nuevo.');
+          console.log(err);
+        });
     });
   </script>
+
 </body>
 </html>
