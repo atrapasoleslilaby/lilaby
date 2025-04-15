@@ -120,7 +120,30 @@ button:hover {
   transform: scale(1.05);
   box-shadow: 0 0 15px #ddb0ff;
 }
+#mensaje-flotante {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #eeddf5;
+  color: #4b2e39;
+  padding: 1em 2em;
+  border-radius: 1em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-weight: bold;
+  font-size: 1em;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
 
+#mensaje-flotante.mostrar {
+  opacity: 1;
+}
+
+#mensaje-flotante.oculto {
+  opacity: 0;
+}
   </style>
 </head>
 <body>
@@ -180,7 +203,7 @@ button:hover {
 
  <section id="contactos">
   <h2>Contacto</h2>
-  <form action="mailto:tucorreo@dominio.com" method="POST" enctype="text/plain">
+ <form id="formulario-contacto">
     <div class="fila">
       <div class="campo">
         <label for="nombre">Nombre:</label>
@@ -208,6 +231,9 @@ button:hover {
 
     <button type="submit">💖 Enviar</button>
   </form>
+   <div id="mensaje-flotante" class="oculto">
+  💜 Gracias por tu mensaje, ¡pronto te responderemos con mucha luz! 🌞✨
+</div>
 </section>
 
   <section id="resenas">
@@ -255,5 +281,12 @@ button:hover {
   <footer>
     <p>&copy; 2025 Lilaby Atrapasol. Todos los derechos reservados.</p>
   </footer>
+  <script>
+  document.getElementById("formulario-contacto").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita que se recargue la página
+    alert("💜 Gracias por tu mensaje, ¡pronto te responderemos con mucha luz! 🌞✨");
+    this.reset(); // Limpia el formulario
+  });
+</script>
 </body>
 </html>
