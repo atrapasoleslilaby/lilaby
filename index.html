@@ -103,20 +103,23 @@
       resize: vertical;
     }
 
-    button {
-      background-color: #dcb7f3;
-      color: white;
-      border: none;
-      padding: 0.8em 1.5em;
-      font-size: 1em;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+   button {
+  background: linear-gradient(to right, #dcb7f3, #e0c3f3);
+  color: white;
+  border: none;
+  padding: 0.8em 1.5em;
+  font-size: 1em;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 8px #e5d0ff;
+  transition: all 0.3s ease;
+}
 
-    button:hover {
-      background-color: #c89fe8;
-    }
+button:hover {
+  background: linear-gradient(to right, #e6ccff, #d4aaff);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ddb0ff;
+}
 
   </style>
 </head>
@@ -203,7 +206,7 @@
     <label for="mensaje">Mensaje:</label>
     <textarea id="mensaje" name="mensaje" required placeholder="Escribe tu mensaje con amor 💖"></textarea>
 
-    <button type="submit">Enviar</button>
+    <button type="submit">💖 Enviar</button>
   </form>
 </section>
 
