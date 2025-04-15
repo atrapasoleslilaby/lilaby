@@ -321,7 +321,9 @@ button:hover {
     evento.preventDefault(); // Previene el comportamiento por defecto del formulario
 
     const formData = new FormData(formulario);
+    console.log('Form data:', formData);  // Para asegurarnos de que los datos del formulario son correctos
 
+    // Enviamos el formulario a EmailJS
     emailjs.sendForm('service_05kydsy', 'template_2ze7pje', formData)
       .then(function(response) {
         console.log('Éxito:', response);
@@ -334,7 +336,9 @@ button:hover {
           document.getElementById('mensaje-flotante').classList.add('oculto');
         }, 4000);
       }, function(error) {
-        console.log('Error:', error);
+        console.error('Error al enviar el mensaje:', error);
+        alert('Hubo un problema al enviar el mensaje. Por favor, inténtalo nuevamente.');
       });
   });
 </script>
+
