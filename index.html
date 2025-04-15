@@ -306,9 +306,8 @@ button:hover {
   </div>
 
 <footer>
-  <p>&copy; 2025 Lilaby Atrapasol. Todos los derechos reservados.</p>
-</footer>
-
+    <p>&copy; 2025 Lilaby Atrapasol. Todos los derechos reservados.</p>
+  </footer>
 <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script type="text/javascript">
   emailjs.init('FojyKiv1IwyJXQNZr'); // Aquí va tu Public Key
@@ -318,27 +317,18 @@ button:hover {
   const formulario = document.getElementById('formulario-contacto');
 
   formulario.addEventListener('submit', function(evento) {
-    evento.preventDefault(); // Previene el comportamiento por defecto del formulario
+    evento.preventDefault();
 
     const formData = new FormData(formulario);
-    console.log('Form data:', formData);  // Para asegurarnos de que los datos del formulario son correctos
 
-    // Enviamos el formulario a EmailJS
     emailjs.sendForm('service_05kydsy', 'template_2ze7pje', formData)
       .then(function(response) {
         console.log('Éxito:', response);
-        
-        // Mostrar el mensaje flotante de confirmación
         document.getElementById('mensaje-flotante').classList.remove('oculto');
-        
-        // Ocultar el mensaje flotante después de 4 segundos
-        setTimeout(() => {
-          document.getElementById('mensaje-flotante').classList.add('oculto');
-        }, 4000);
+setTimeout(() => {
+  document.getElementById('mensaje-flotante').classList.add('oculto');
+}, 4000); // se oculta después de 4 segundos
       }, function(error) {
-        console.error('Error al enviar el mensaje:', error);
-        alert('Hubo un problema al enviar el mensaje. Por favor, inténtalo nuevamente.');
+        console.log('Error:', error);
       });
   });
-</script>
-
