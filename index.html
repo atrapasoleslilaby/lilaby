@@ -100,29 +100,30 @@
 <section id="galeria">
   <h2>Galería de Atrapasoles</h2>
 <div class="galeria">
-  <img src="atrapasol1.jpg" alt="Atrapasol 1" class="imagen1">
-  <img src="atrapasol2.jpg" alt="Atrapasol 2" class="imagen2">
+  <img src="atrapasol1.jpg" alt="Atrapasol 1" class="imagen-galeria">
+  <img src="atrapasol2.jpg" alt="Atrapasol 2" class="imagen-galeria">
+  <img src="atrapasol3.jpg" alt="Atrapasol 3" class="imagen-galeria">
 </div>
 
 <style>
   .galeria {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .galeria img {
-    height: 250px; /* mismo alto para todas */
-    width: auto; /* ancho automático para mantener proporción */
+  .imagen-galeria {
+    height: 320px; /* Mismo largo para todas */
+    object-fit: cover;
     margin: 10px;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .galeria img:hover {
+  .imagen-galeria:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
 </style>
 
