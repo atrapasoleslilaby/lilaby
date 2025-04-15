@@ -1,144 +1,194 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto - Atrapasoles</title>
-
-  <!-- Fuente calmada -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>
-    (function(){
-      emailjs.init("FojyKiv1IwyJXQNZr"); // Tu Public Key
-    })();
-  </script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Página</title>
+  <!-- Vinculación de fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Estilos personalizados -->
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Roboto', sans-serif;
+      background-color: #F8E5E5;
       margin: 0;
       padding: 0;
-      background-color: #fdf9f6;
-      color: #3e2f4d;
     }
 
-    /* Mensaje flotante */
-    #mensaje-flotante {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: linear-gradient(145deg, #e9dff5, #fbe8cc);
-      color: #5d3b66;
-      padding: 20px 30px;
-      border-radius: 20px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.8s ease, transform 0.5s ease;
-      transform: translateY(20px);
-      z-index: 9999;
-    }
-
-    #mensaje-flotante.visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    #mensaje-flotante span {
-      font-weight: 500;
-      font-size: 1rem;
-    }
-
-    /* Formulario aesthetic */
-    .formulario-container {
-      max-width: 500px;
-      margin: 100px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 25px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      border: 2px solid #e6d2f0;
-    }
-
-    .formulario-container h2 {
+    header {
+      background-color: #6F4F93; /* Morado vino */
+      color: #fff;
+      padding: 20px;
       text-align: center;
-      color: #7a4d91;
-      margin-bottom: 20px;
     }
 
-    input, textarea {
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+
+    nav {
+      text-align: center;
+      background-color: #D9A1D5; /* Color pastel */
+      padding: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    nav a:hover {
+      color: #F5C3D7; /* Color suave pastel */
+    }
+
+    section {
+      padding: 50px 10%;
+      background-color: #fff;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    footer {
+      background-color: #6F4F93; /* Morado vino */
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Estilos para el formulario */
+    .form-container {
+      background-color: #F5C3D7;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container input,
+    .form-container textarea {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       margin-bottom: 15px;
-      border: 1px solid #d6c3e3;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-family: 'Poppins', sans-serif;
+      border: 1px solid #ddd;
+      border-radius: 5px;
     }
 
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #c59cd7;
+    .form-container button {
+      background-color: #6F4F93;
       color: white;
+      padding: 15px 30px;
       border: none;
-      border-radius: 15px;
-      font-size: 1rem;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
 
-    button:hover {
-      background-color: #a97cc2;
+    .form-container button:hover {
+      background-color: #5a3f6e;
     }
+
+    /* Estilo del mensaje flotante */
+    .mensaje-flotante {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      z-index: 9999;
+      display: none; /* Inicialmente oculto */
+    }
+
+    .mensaje-flotante.oculto {
+      display: none;
+    }
+
+    .mensaje-flotante.visible {
+      display: block;
+    }
+
   </style>
 </head>
 <body>
 
-  <div class="formulario-container">
-    <h2>Contáctame ✨</h2>
-    <form id="formulario-contacto">
-      <input type="text" name="nombre" placeholder="Tu nombre" required>
-      <input type="email" name="email" placeholder="Tu correo electrónico" required>
-      <textarea name="mensaje" placeholder="Tu mensaje..." rows="5" required></textarea>
-      <button type="submit">Enviar 💌</button>
-    </form>
+  <header>
+    <h1>Bienvenidos a Tu Página</h1>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Productos</a>
+      <a href="#">Galería</a>
+      <a href="#">Contactos</a>
+      <a href="#">Reseñas</a>
+    </nav>
+  </header>
+
+  <section id="formulario-contacto">
+    <h2>¡Contáctanos!</h2>
+    <div class="form-container">
+      <form id="formulario-contacto">
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" id="email" name="email" placeholder="Tu correo" required>
+        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje" required></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Tu Página - Todos los derechos reservados</p>
+  </footer>
+
+  <div id="mensaje-flotante" class="mensaje-flotante oculto">
+    ¡Gracias por tu mensaje! Nos pondremos en contacto pronto.
   </div>
 
-  <!-- Mensaje flotante -->
-  <div id="mensaje-flotante">
-    <span>✨ ¡Gracias por tu mensaje! 🌞 Te responderé pronto.</span>
-  </div>
-
+  <!-- Script de EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
+    (function() {
+      emailjs.init("FojyKiv1IwyJXQNZr"); // Reemplaza con tu public key
+    })();
+
     document.getElementById('formulario-contacto').addEventListener('submit', function(event) {
-      event.preventDefault();
+      event.preventDefault(); // Prevenir el envío normal del formulario
 
-      const serviceID = 'service_05kydsy';
-      const templateID = 'template_2ze7pje';
+      var nombre = document.getElementById('nombre').value;
+      var email = document.getElementById('email').value;
+      var mensaje = document.getElementById('mensaje').value;
 
-      emailjs.sendForm(serviceID, templateID, this)
-        .then(() => {
-          // Mostrar mensaje flotante
-          const mensaje = document.getElementById('mensaje-flotante');
-          mensaje.classList.add('visible');
+      var templateParams = {
+        nombre: nombre,
+        email: email,
+        mensaje: mensaje
+      };
 
-          // Ocultar después de 5 segundos
-          setTimeout(() => {
-            mensaje.classList.remove('visible');
+      // Enviar correo con EmailJS
+      emailjs.send('service_05kydsy', 'template_2ze7pje', templateParams)
+        .then(function(response) {
+          // Mostrar mensaje flotante de éxito
+          var mensajeFlotante = document.getElementById('mensaje-flotante');
+          mensajeFlotante.classList.remove('oculto');
+          mensajeFlotante.classList.add('visible');
+          
+          // Esconder mensaje después de 5 segundos
+          setTimeout(function() {
+            mensajeFlotante.classList.add('oculto');
+            mensajeFlotante.classList.remove('visible');
           }, 5000);
-
-          this.reset(); // Limpiar formulario
-        }, (err) => {
-          alert('Ups... hubo un error 😢. Intenta de nuevo.');
-          console.log(err);
+        }, function(error) {
+          console.log('Error al enviar el mensaje: ', error);
         });
     });
   </script>
-
 </body>
 </html>
